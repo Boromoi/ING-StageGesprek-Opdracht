@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,6 @@ namespace Zoo
         [SerializeField]
         private Text text;
         public string name;
-
 
         public void SayHello()
         {

@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Zoo
 {
-    class Hippo:MonoBehaviour
+    class Hippo : MonoBehaviour
     {
         public string name;
         [SerializeField]
@@ -23,5 +25,4 @@ namespace Zoo
             text.text = "munch munch lovely";
         }
     }
-    
 }
