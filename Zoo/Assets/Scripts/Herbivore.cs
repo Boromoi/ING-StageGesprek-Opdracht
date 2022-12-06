@@ -5,16 +5,23 @@ using UnityEngine.UI;
 
 public class Herbivore : Animal
 {
-    public void Start()
+    public Button leavesButton;
+
+    public override void Start()
     {
         // Set the type of animal
         type = "Herbivore";
+
+        leavesButton = GameObject.FindGameObjectWithTag("LeavesButton").GetComponent<Button>();
+
+        //leavesButton.OnPointerClick(EatLeaves());
+        leavesButton.onClick.AddListener(EatLeaves);
     }
 
     // Eat leaves and say text in the textBalloon
-    public void EatLeaves()
+    public virtual void EatLeaves()
     {
-        Balloon.SetActive(true);
-        text.text = "munch munch lovely";
+        //Balloon.SetActive(true);
+        //text.text = "Herbivore eats?";
     }
 }

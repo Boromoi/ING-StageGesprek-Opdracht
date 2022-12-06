@@ -2,20 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zoo;
 
-public class Animal : MonoBehaviour, IAnimal
+public class Animal : MonoBehaviour
 {
-    public virtual string type { get => type; set => type = value; }
-    public virtual string name { get => name; set => name = value; }
+    public string type;
 
-    [SerializeField]
-    protected GameObject Balloon;
-    [SerializeField]
-    protected Text text;
+    public new string name;
 
-    public void SayHello()
+    public Button helloButton;
+
+    //public Spawner spawner;
+
+    //[SerializeField]
+    //protected GameObject Balloon;
+    //[SerializeField]
+    //public Text text;
+
+    public virtual void Start()
     {
-        Balloon.SetActive(true);
-        text.text = "splash";
+        helloButton = GameObject.FindGameObjectWithTag("HelloButton").GetComponent<Button>();
+        //spawner = new Spawner();
+    }
+
+    public virtual void SayHello()
+    {
+        //Balloon.SetActive(true);
+        //text.text = "Animal says hello";
     }
 }

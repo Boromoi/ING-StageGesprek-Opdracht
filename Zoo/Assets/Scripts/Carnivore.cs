@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class Carnivore : Animal
 {
-    public void Start()
+    public override void Start()
     {
         // Set the type of animal
         type = "Carnivore";
     }
 
     // Eat meat and say text in the textBalloon
-    public void EatMeat()
+    public virtual void EatMeat()
     {
-        Balloon.SetActive(true);
-        text.text = "nomnomnom thx mate";
+        //Balloon.SetActive(true);
+        //text.text = "Carnivore eats?";
     }
 }
