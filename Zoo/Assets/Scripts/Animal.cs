@@ -26,6 +26,7 @@ public class Animal : MonoBehaviour, IAnimal
 
         helloButton = GameObject.FindGameObjectWithTag("HelloButton").GetComponent<Button>();
         trickButton = GameObject.FindGameObjectWithTag("TrickButton").GetComponent<Button>();
+        inputField = GameObject.FindGameObjectWithTag("InputField").GetComponent<InputField>();
 
         // Subscribe the buttons to the right methods
         helloButton.onClick.AddListener(SayHello);
@@ -38,7 +39,11 @@ public class Animal : MonoBehaviour, IAnimal
 
     public virtual void SayHello()
     {
-        Balloon.SetActive(true);
+        // Check if the text in the inputField is the same as the animals name or if the field is empty
+        if (inputField.text == this.name || inputField.text == "")
+        {
+            Balloon.SetActive(true);
+        }
     }
 
     public virtual void PerformTrick()
