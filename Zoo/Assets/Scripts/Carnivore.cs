@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Carnivore : Animal, ICarnivore
 {
     public Button meatButton;
+    public AudioSource audioSourceMeat;
 
     public override void Start()
     {
@@ -16,6 +17,7 @@ public class Carnivore : Animal, ICarnivore
 
         // Get all the refrences to the objects
         meatButton = GameObject.FindGameObjectWithTag("MeatButton").GetComponent<Button>();
+        audioSourceMeat = GameObject.FindGameObjectWithTag("AudioSourceMeat").GetComponent<AudioSource>();
 
         // Add the onClick event Listeners to the right methods
         meatButton.onClick.AddListener(EatMeat);
@@ -24,6 +26,9 @@ public class Carnivore : Animal, ICarnivore
     // Eat meat and say text in the textBalloon
     public virtual void EatMeat()
     {
+        // Play a soundeffect for eating meat
+        audioSourceMeat.Play();
+
         Balloon.SetActive(true);
     }
 }

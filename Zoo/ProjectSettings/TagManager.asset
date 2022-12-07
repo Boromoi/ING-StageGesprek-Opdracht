@@ -9,6 +9,9 @@ TagManager:
   - MeatButton
   - TrickButton
   - HelloButton
+  - HippoBalloon
+  - AudioSourceMeat
+  - AudioSourceLeaves
   layers:
   - Default
   - TransparentFX

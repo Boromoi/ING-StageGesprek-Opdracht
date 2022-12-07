@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Herbivore : Animal, IHerbivore
 {
     public Button leavesButton;
+    public AudioSource audioSourceLeaves;
 
     public override void Start()
     {
@@ -16,6 +17,7 @@ public class Herbivore : Animal, IHerbivore
 
         // Get all the refrences to the objects
         leavesButton = GameObject.FindGameObjectWithTag("LeavesButton").GetComponent<Button>();
+        audioSourceLeaves = GameObject.FindGameObjectWithTag("AudioSourceLeaves").GetComponent<AudioSource>();
 
         // Add the onClick event Listeners to the right methods
         leavesButton.onClick.AddListener(EatLeaves);
@@ -24,6 +26,9 @@ public class Herbivore : Animal, IHerbivore
     // Eat leaves and say text in the textBalloon
     public virtual void EatLeaves()
     {
+        // Play a soundeffect for eating leaves        
+        audioSourceLeaves.Play();
+
         Balloon.SetActive(true);
     }
 }

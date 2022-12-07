@@ -13,7 +13,7 @@ public class Animal : MonoBehaviour, IAnimal
 
     public Button helloButton;
     public Button trickButton;
-    public InputField inputField;
+    public InputField inputField;    
 
     protected GameObject Balloon;
     public Text text;
@@ -27,6 +27,7 @@ public class Animal : MonoBehaviour, IAnimal
         helloButton = GameObject.FindGameObjectWithTag("HelloButton").GetComponent<Button>();
         trickButton = GameObject.FindGameObjectWithTag("TrickButton").GetComponent<Button>();
         inputField = GameObject.FindGameObjectWithTag("InputField").GetComponent<InputField>();
+
 
         // Subscribe the buttons to the right methods
         helloButton.onClick.AddListener(SayHello);
