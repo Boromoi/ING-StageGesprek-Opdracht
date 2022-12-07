@@ -5,44 +5,35 @@ using UnityEngine.UI;
 
 namespace Zoo
 {
-    class Pig : MonoBehaviour
+    class Pig : Omnivore
     {
-        public string name;
-        [SerializeField]
-        private GameObject Balloon;
-        [SerializeField]
-        private Text text;
-
-        public void SayHello()
+        public override void Start()
         {
-            Balloon.SetActive(true);
+            // Set canDoTrick before base.Start(), because the ordering is otherwise wrong
+            canDoTrick = true;
+
+            base.Start();
+        }
+
+        public override void SayHello()
+        {
+            base.SayHello();
+
             text.text = "oink oink";
         }
 
-        public void EatLeaves()
+        public override void EatLeaves()
         {
-            Balloon.SetActive(true);
+            base.EatLeaves();
+
             text.text = "munch munch oink";
         }
 
-        public void EatMeat()
+        public override void EatMeat()
         {
-            Balloon.SetActive(true);
+            base.EatMeat();
+
             text.text = "nomnomnom oink thx";
-        }
-
-        public void PerformTrick()
-        {
-            StartCoroutine(DoTrick());
-        }
-
-        IEnumerator DoTrick()
-        {
-            for (int i = 0; i < 360; i++)
-            {
-                transform.localRotation = Quaternion.Euler(i, 0, 0);
-                yield return new WaitForEndOfFrame();
-            }
         }
     }
 }

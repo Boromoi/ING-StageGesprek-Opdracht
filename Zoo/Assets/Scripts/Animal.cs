@@ -4,30 +4,54 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zoo;
 
-public class Animal : MonoBehaviour
+public class Animal : MonoBehaviour, IAnimal
 {
     public string type;
-
     public new string name;
 
+    public bool canDoTrick = false;
+
     public Button helloButton;
+    public Button trickButton;
+    public InputField inputField;
 
-    //public Spawner spawner;
-
-    //[SerializeField]
-    //protected GameObject Balloon;
-    //[SerializeField]
-    //public Text text;
+    protected GameObject Balloon;
+    public Text text;
 
     public virtual void Start()
     {
+        // Get all the refrences to the objects
+        Balloon = gameObject.transform.GetChild(0).gameObject;
+        text = Balloon.transform.GetChild(0).GetComponent<Text>();
+
         helloButton = GameObject.FindGameObjectWithTag("HelloButton").GetComponent<Button>();
-        //spawner = new Spawner();
+        trickButton = GameObject.FindGameObjectWithTag("TrickButton").GetComponent<Button>();
+
+        // Subscribe the buttons to the right methods
+        helloButton.onClick.AddListener(SayHello);
+
+        if (canDoTrick)
+        {
+            trickButton.onClick.AddListener(PerformTrick);
+        }
     }
 
     public virtual void SayHello()
     {
-        //Balloon.SetActive(true);
-        //text.text = "Animal says hello";
+        Balloon.SetActive(true);
+    }
+
+    public virtual void PerformTrick()
+    {
+        StartCoroutine(DoTrick());
+    }
+
+    public virtual IEnumerator DoTrick()
+    {
+        for (int i = 0; i < 360; i++)
+        {
+            transform.localRotation = Quaternion.Euler(i, 0, 0);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
