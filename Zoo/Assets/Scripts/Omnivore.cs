@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Omnivore : Animal, IHerbivore, ICarnivore
+class Omnivore : Animal
 {
-    public Button leavesButton;
-    public Button meatButton;
+    protected Button leavesButton;
+    protected Button meatButton;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -24,13 +24,13 @@ public class Omnivore : Animal, IHerbivore, ICarnivore
     }
 
     // Eat leaves and say text in the textBalloon
-    public virtual void EatLeaves()
+    protected virtual void EatLeaves()
     {
         Balloon.SetActive(true);
     }
 
     // Eat meat and say text in the textBalloon
-    public virtual void EatMeat()
+    protected virtual void EatMeat()
     {
         Balloon.SetActive(true);
     }

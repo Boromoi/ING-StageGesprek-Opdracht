@@ -6,14 +6,14 @@ namespace Zoo
 {
     class Sheep : Herbivore
     {
-        public override void SayHello()
+        protected override void SayHello()
         {
             base.SayHello();
 
             text.text = "behe beh";
         }
 
-        public override void EatLeaves()
+        protected override void EatLeaves()
         {
             base.EatLeaves();
 

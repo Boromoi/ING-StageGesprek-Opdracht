@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 344, y: -278}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1202419588749359374
 CanvasRenderer:
@@ -105,14 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ece86eef40aa354181d95729e5c6071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 
   name: 
-  canDoTrick: 0
-  helloButton: {fileID: 0}
-  trickButton: {fileID: 0}
-  inputField: {fileID: 0}
-  text: {fileID: 0}
-  meatButton: {fileID: 0}
 --- !u!1 &1422648622906733632
 GameObject:
   m_ObjectHideFlags: 0

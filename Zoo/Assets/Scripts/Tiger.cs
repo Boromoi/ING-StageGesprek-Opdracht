@@ -7,7 +7,7 @@ namespace Zoo
 {
     class Tiger : Carnivore
     {
-        public override void Start()
+        protected override void Start()
         {
             // Set canDoTrick before base.Start(), because the ordering is otherwise wrong
             canDoTrick = true;
@@ -15,14 +15,14 @@ namespace Zoo
             base.Start();
         }
 
-        public override void SayHello()
+        protected override void SayHello()
         {
             base.SayHello();
 
             text.text = "rraaarww";
         }
 
-        public override void EatMeat()
+        protected override void EatMeat()
         {
             base.EatMeat();
 

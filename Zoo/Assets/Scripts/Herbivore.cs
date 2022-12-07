@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Herbivore : Animal, IHerbivore
+class Herbivore : Animal
 {
-    public Button leavesButton;
-    public AudioSource audioSourceLeaves;
+    protected Button leavesButton;
+    protected AudioSource audioSourceLeaves;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -24,7 +24,7 @@ public class Herbivore : Animal, IHerbivore
     }
 
     // Eat leaves and say text in the textBalloon
-    public virtual void EatLeaves()
+    protected virtual void EatLeaves()
     {
         // Play a soundeffect for eating leaves        
         audioSourceLeaves.Play();

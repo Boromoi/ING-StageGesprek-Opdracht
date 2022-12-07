@@ -7,14 +7,14 @@ namespace Zoo
 {
     class Zebra : Herbivore
     {
-        public override void SayHello()
+        protected override void SayHello()
         {
             base.SayHello();
 
             text.text = "zebra zebra";
         }
 
-        public override void EatLeaves()
+        protected override void EatLeaves()
         {
             base.EatLeaves();
 

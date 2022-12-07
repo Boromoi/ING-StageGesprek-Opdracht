@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Carnivore : Animal, ICarnivore
+class Carnivore : Animal
 {
-    public Button meatButton;
-    public AudioSource audioSourceMeat;
+    protected Button meatButton;
+    protected AudioSource audioSourceMeat;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -24,7 +24,7 @@ public class Carnivore : Animal, ICarnivore
     }
 
     // Eat meat and say text in the textBalloon
-    public virtual void EatMeat()
+    protected virtual void EatMeat()
     {
         // Play a soundeffect for eating meat
         audioSourceMeat.Play();

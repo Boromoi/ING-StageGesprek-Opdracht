@@ -4,21 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zoo;
 
-public class Animal : MonoBehaviour, IAnimal
+class Animal : MonoBehaviour
 {
-    public string type;
+    protected string type;
     public new string name;
 
-    public bool canDoTrick = false;
+    protected bool canDoTrick = false;
 
-    public Button helloButton;
-    public Button trickButton;
-    public InputField inputField;    
+    protected Button helloButton;
+    protected Button trickButton;
+    protected InputField inputField;    
 
     protected GameObject Balloon;
-    public Text text;
+    protected Text text;
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         // Get all the refrences to the objects
         Balloon = gameObject.transform.GetChild(0).gameObject;
@@ -38,7 +38,7 @@ public class Animal : MonoBehaviour, IAnimal
         }
     }
 
-    public virtual void SayHello()
+    protected virtual void SayHello()
     {
         // Check if the text in the inputField is the same as the animals name or if the field is empty
         if (inputField.text == this.name || inputField.text == "")
@@ -47,12 +47,12 @@ public class Animal : MonoBehaviour, IAnimal
         }
     }
 
-    public virtual void PerformTrick()
+    protected virtual void PerformTrick()
     {
         StartCoroutine(DoTrick());
     }
 
-    public virtual IEnumerator DoTrick()
+    protected virtual IEnumerator DoTrick()
     {
         for (int i = 0; i < 360; i++)
         {
